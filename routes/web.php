@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/cc', 'ShortLinkController@index')->name('generate.shorten.link'); // cc url после домена
+Route::post('/cc', 'ShortLinkController@store')->name('generate.shorten.link.post'); // сохраняет ссылку в БД
+Route::get('/{code}', 'ShortLinkController@shortenLink')->name('shorten.link'); // code динамический параметр
+
+
